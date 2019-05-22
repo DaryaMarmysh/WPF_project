@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:kurs">
+
+    <ImageBrush x:Key="0" ImageSource="Assets/henry-be-99471-unsplash.jpg" />
+    <ImageBrush x:Key="1" ImageSource="Assets/kelly-sikkema-1107859-unsplash.jpg" />
+    <ImageBrush x:Key="2" ImageSource="Assets/81744.jpg" />
+    <ImageBrush x:Key="3" ImageSource="Assets/eberhard-grossgasteiger-711652-unsplash.jpg" />
+    <ImageBrush x:Key="4" ImageSource="Assets/sumner-mahaffey-363368-unsplash.jpg" />
+    <ImageBrush x:Key="5" ImageSource="Assets/pawel-czerwinski-1574309-unsplash.jpg" />
+    <ImageBrush x:Key="6" ImageSource="Assets/pawel-czerwinski-1311901-unsplash.jpg" />
+    <ImageBrush x:Key="7" ImageSource="Assets/scott-webb-1486563-unsplash.jpg" />
+    <ImageBrush x:Key="8" ImageSource="Assets/2336738.jpg" />
+    <ImageBrush x:Key="9" ImageSource="Assets/bianca-castillo-1207597-unsplash.jpg" />
+    <ImageBrush x:Key="10" ImageSource="Assets/jeremy-bishop-1294983-unsplash.jpg" />
+    <ImageBrush x:Key="11" ImageSource="Assets/86373.jpg" />
+    <ImageBrush x:Key="12" ImageSource="Assets/scott-webb-1486563-unsplash.jpg" />
+</ResourceDictionary>
