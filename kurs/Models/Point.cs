@@ -14,7 +14,7 @@ namespace kurs.Models
         public virtual ICollection<Answer> Answers { get; set; }
         public int? TestTitleId { get; set; }
         public TestTitle TestTitle { get; set; }
-
+        
         public Point()
         {
             Answers = new List<Answer>();

@@ -1,26 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System;
 using kurs.Models;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using kurs.Context;
-
+using System.Windows.Media;
 
 namespace kurs
 {
@@ -73,6 +58,7 @@ namespace kurs
         private void CreateButtonsList(ICollection<TestTitle> titles)
         {
             if (titles == null) return;
+            
             foreach (var title in titles)
             {
                 var button = new Button()
@@ -81,20 +67,36 @@ namespace kurs
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(10, 14, 0, 0),
-                    MinWidth = 200,
+                    MinWidth = 300,
                     HorizontalContentAlignment = HorizontalAlignment.Center,
                     VerticalContentAlignment = VerticalAlignment.Center,
                     Tag= title.Id
-
-
                 };
+                //////добавить в юзер список тестов
                 button.Click += SelectCategory;
+                if (title.DoUsers!= null)
+                {
+                    foreach (User u in title.DoUsers)
+                    {
+                        if (u.Id == CurrentUser.User.Id)
+
+                        {
+                            button.Foreground = Brushes.Gray;
+                        }
+                    }
+                }
                 _buttons.Add(button);
             }
         }
         private void SelectCategory(object sender, RoutedEventArgs args)
         {
             Button b = (Button)sender;
+            using (var db = new DatabaseContext())
+            {
+                TestTitle title = db.TestTitles.FirstOrDefault(t => t.Id == (int)b.Tag);
+                title.DoUsers.Add(db.Users.Find(CurrentUser.User.Id));
+                db.SaveChanges();
+            }
             Testing.MyCurrentTest = int.Parse(b.Tag.ToString());
             this.NavigationService.Navigate(new Uri("Testing.xaml", UriKind.RelativeOrAbsolute));
             // this.NavigationService.Navigate(new Uri("Testing.xaml", UriKind.RelativeOrAbsolute));

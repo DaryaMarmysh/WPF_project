@@ -6,12 +6,17 @@
       xmlns:local="clr-namespace:kurs"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1080"
       Title="PageWithCategories">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center">
-            <ItemsControl Foreground="#FF313131" FontFamily="Champagne &amp; Limousines"  ItemsSource="{Binding Buttons}"
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="251.2"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel  HorizontalAlignment="Center"  Grid.Column="1"  >
+            <ItemsControl Grid.Column="1" Foreground="#FF313131" FontFamily="Champagne &amp; Limousines"  ItemsSource="{Binding Buttons}"
                           Name="Catigories" Margin="0,50,0,0">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -21,5 +26,5 @@
             </ItemsControl>
         </StackPanel>
     </Grid>
-    
+
 </Page>

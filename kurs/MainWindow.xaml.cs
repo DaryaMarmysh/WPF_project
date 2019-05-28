@@ -32,6 +32,11 @@ namespace kurs
         {
             Application.Current.Shutdown();
         }
+
+        private void ShowOpenMenu(object sender, RoutedEventArgs e)
+        {
+            ButtonOpen.Visibility = Visibility.Visible;
+        }
         private void ChangeTheme(object sender, RoutedEventArgs e)
         {
             
@@ -66,6 +71,11 @@ namespace kurs
         private void BuildTest(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("Constructor.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void HidenOpenMenu(object sender, RoutedEventArgs e)
+        {
+            ButtonOpen.Visibility = Visibility.Hidden;
         }
     }
 }

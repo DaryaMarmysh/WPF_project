@@ -4,32 +4,37 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+     
       Title="Testing">
 
     <Grid Name="gr" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="251.2"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel HorizontalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" Margin="251,0,0,0" Width="829" Grid.ColumnSpan="2">
+            <Grid Height="600" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="360"/>
+                    <RowDefinition Height="68"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Name="TitleofTest" FontSize="24"  Height="Auto"  
+                     FontFamily="Global Sans Serif" FontWeight="Bold" Margin="0,30,-0.2,71" Grid.RowSpan="2" >
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="#FF2196F3" Opacity="0"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF2196F3" Opacity="0"/>
+                    </Button.Background>
+                </Button>
 
-            <Button  Name="TitleofTest" FontSize="24"  Height="Auto"  Margin="70,30,0.2,70"
-                     FontFamily="Global Sans Serif" FontWeight="Bold" >
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="#FF2196F3" Opacity="0"/>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="#FF2196F3" Opacity="0"/>
-                </Button.Background>
-            </Button>
 
-            <Grid Width="775" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="104.8"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="1" FontSize="18"  
-                     FontFamily="Global Sans Serif" FontWeight="Bold" Height="Auto"   Margin="26.2,0,0.2,-0.4"  >
+                <Button Grid.Row="1" FontSize="18"  
+                     FontFamily="Global Sans Serif" FontWeight="Bold" Height="Auto" Margin="0,0.2,-0.2,0"     >
                     <Button.BorderBrush>
                         <SolidColorBrush Color="#FF2196F3" Opacity="0"/>
                     </Button.BorderBrush>
@@ -38,17 +43,23 @@
                     </Button.Background>
                     <TextBlock TextWrapping="Wrap"  Name="TitleLabel" MaxWidth="650" Height="Auto" TextAlignment="Center" />
                 </Button>
-            </Grid>
 
-            <ItemsControl Foreground="#FF313131" FontFamily="Champagne &amp; Limousines"  ItemsSource="{Binding Buttons}"
-                          Name="Questions" Margin="0,10,0,0">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button  Click="StartTest"></Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+
+                <ItemsControl Grid.Row="2" Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" HorizontalAlignment="Center"  ItemsSource="{Binding Buttons}"
+                          Name="Questions" >
+                    
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                      
+                                <Button  Click="StartTest"></Button>
+                           
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Grid.Row="3" Width="188" Name="res"  Content="Посмотреть результаты" Click="GoToResult" Height="32" Margin="331,0,309.8,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
         </StackPanel>
-        <Button Width="Auto"  HorizontalAlignment="Center" Name="res"  Content="Посмотреть результаты" Click="GoToResult" RenderTransformOrigin="0.669,6.562" Margin="395,387,373,30.6"></Button>
+
+
     </Grid>
 </Page>

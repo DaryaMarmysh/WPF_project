@@ -11,13 +11,14 @@ namespace kurs
 {
     public partial class Testing:Page
     {
-        private int _curI;
+        private int _curI;public double max = 0;
         private List<Point> _testList;
         TestTitle TestTitle;
         private List<Button> _buttons;
         public static int MyCurrentTest;
         public Test Test { get; set; }
         public Testing()
+            
         {
             _curI = 0;
             Test = new Test();
@@ -44,11 +45,11 @@ namespace kurs
         private void StartTest(object sender, RoutedEventArgs args)
         {
             _buttons = new List<Button>();
-            var btns = sender as Button;
+            var btns = sender as TextBlock;
             if (_curI != 0)
             {
                 SaveAnswer();
-                if (btns != null) IncreaseCounter((string)btns.Content);
+                if (btns != null) IncreaseCounter((string)btns.Text);
             }
             if (_curI < _testList.Count)
                 BringButtonsToFront();
@@ -75,6 +76,7 @@ namespace kurs
                 var answers = db.Points.Include(p => p.Answers).FirstOrDefault(p => p.Id == curPoint)
                     ?.Answers;
                 CreateButtonsList(answers);
+        
                 Test.Buttons = _buttons;
             }
         }
@@ -88,20 +90,31 @@ namespace kurs
             if (answers == null) return;
             foreach (var answer in answers)
             {
+                TextBlock t = new TextBlock();
+                t.TextWrapping = TextWrapping.Wrap;
                 var button = new Button()
                 {
-                    Content = answer.Content,
+
+
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(10, 14, 0, 0),
-                    MinWidth=150,
-                    MaxWidth=150,
-                    Width = 150,
-                    HorizontalContentAlignment = HorizontalAlignment.Center,
-                    VerticalContentAlignment = VerticalAlignment.Center
-
-
+                    Padding = new Thickness(0),
+                    HorizontalContentAlignment = HorizontalAlignment.Left,
+                    VerticalContentAlignment = VerticalAlignment.Center,
+                    MinWidth=300,
+                    MaxWidth=300,
+                    Height=Double.NaN
+                  
                 };
+                t.Padding = new Thickness(5);
+                t.Margin = new Thickness(0);
+                t.MinWidth = 300;
+                t.MaxWidth=300;
+                t.TextAlignment = TextAlignment.Center;
+                t.Text = answer.Content;
+                t.Height = Double.NaN;
+                button.Content = t;
                 button.Click += StartTest;
                 _buttons.Add(button);
             }

@@ -45,6 +45,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -190,6 +196,14 @@
     <Compile Include="Migrations\201905220900216_addthemetocurrentuser.Designer.cs">
       <DependentUpon>201905220900216_addthemetocurrentuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905250518080_DoUsers.cs" />
+    <Compile Include="Migrations\201905250518080_DoUsers.Designer.cs">
+      <DependentUpon>201905250518080_DoUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905250557591_ddd.cs" />
+    <Compile Include="Migrations\201905250557591_ddd.Designer.cs">
+      <DependentUpon>201905250557591_ddd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Category.cs" />
@@ -297,6 +311,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905220900216_addthemetocurrentuser.resx">
       <DependentUpon>201905220900216_addthemetocurrentuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905250518080_DoUsers.resx">
+      <DependentUpon>201905250518080_DoUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905250557591_ddd.resx">
+      <DependentUpon>201905250557591_ddd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

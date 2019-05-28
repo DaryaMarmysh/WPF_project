@@ -61,7 +61,7 @@ namespace kurs
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(10, 14, 0, 0),
-                    MinWidth = 200,
+                    MinWidth = 300,
                     HorizontalContentAlignment = HorizontalAlignment.Center,
                     VerticalContentAlignment = VerticalAlignment.Center,
                     Tag=category.Id

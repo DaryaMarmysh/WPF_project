@@ -19,7 +19,7 @@ namespace kurs.Models
         public virtual ICollection<Point> Points { get; set; }
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
-
+        public virtual ICollection<User> DoUsers { get; set; }
         public TestTitle()
         {
             Points = new List<Point>();

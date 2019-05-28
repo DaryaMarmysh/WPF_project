@@ -5,14 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1800"
       Title="Constructor">
-  
+
     <Grid>
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="251.2"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
             <Label Content="Выберите категорию" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="34"  Height="Auto"
-                   FontFamily="Global Sans Serif" FontWeight="Bold" Foreground="White"></Label>
-            <ListBox  Name="CategoriesListBox" HorizontalAlignment="Center" Width="300" Background="#FFBFBFBF" FontFamily="{Binding ElementName=Answer1, Mode=OneWay}">
+                   FontFamily="Global Sans Serif" FontWeight="Bold" Foreground="{Binding Foreground, ElementName=button}"></Label>
+            <ListBox  Name="CategoriesListBox" HorizontalAlignment="Center" Width="300" Background="#FFBFBFBF" FontFamily="{Binding ElementName=Answer1, Mode=OneWay}" Foreground="{Binding Foreground, ElementName=button}">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
                         <Style.Triggers>
@@ -29,16 +33,16 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
             <Label Content="Название теста" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="34"  Height="Auto"
-                   FontFamily="Global Sans Serif" FontWeight="Bold" Foreground="White"></Label>
-            <TextBox Name="Title" HorizontalAlignment="Center" Width="300"></TextBox>
-            <TextBox Name="PointBox" materialDesign:HintAssist.Hint="Вопрос" HorizontalAlignment="Center" Width="300"></TextBox>
-            <TextBox Name="Answer1" materialDesign:HintAssist.Hint="ОТВЕТ 1" HorizontalAlignment="Center" Width="300"></TextBox>
-            <TextBox Name="Answer2" materialDesign:HintAssist.Hint="ОТВЕТ 2" HorizontalAlignment="Center" Width="300"></TextBox>
-            <TextBox Name="Answer3" materialDesign:HintAssist.Hint="ОТВЕТ 3" HorizontalAlignment="Center" Width="300"></TextBox>
-            <TextBox Name="Answer4" materialDesign:HintAssist.Hint="ОТВЕТ 4" HorizontalAlignment="Center" Width="300"></TextBox>
+                   FontFamily="Global Sans Serif" FontWeight="Bold" Foreground="{Binding Foreground, ElementName=button}"></Label>
+            <TextBox Name="Title" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
+            <TextBox Name="PointBox" materialDesign:HintAssist.Hint="Вопрос" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
+            <TextBox Name="Answer1" materialDesign:HintAssist.Hint="ОТВЕТ 1" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
+            <TextBox Name="Answer2" materialDesign:HintAssist.Hint="ОТВЕТ 2" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
+            <TextBox Name="Answer3" materialDesign:HintAssist.Hint="ОТВЕТ 3" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
+            <TextBox Name="Answer4" materialDesign:HintAssist.Hint="ОТВЕТ 4" HorizontalAlignment="Center" Width="300" Foreground="{Binding Foreground, ElementName=button}"></TextBox>
             <TextBlock Name="ErrorBlock" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
-            <Button Content="ДОБАВИТЬ" HorizontalAlignment="Center" Width="150" Margin="0 20 0 0" Click="AddPoint"></Button>
+            <Button x:Name="button" Content="ДОБАВИТЬ" HorizontalAlignment="Center" Width="150" Margin="0 20 0 0" Click="AddPoint"></Button>
         </StackPanel>
-        
+
     </Grid>
 </Page>
